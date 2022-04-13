@@ -51,6 +51,6 @@ android {
 }
 
 dependencies {
-  api 'io.agora.rtc:iris-rtc:3.5.2'
+  implementation 'io.agora.rtc:full-sdk:3.5.2'
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${safeExtGet('kotlin_version', "$agora_rtc_engine_kt_version")}"
 }
