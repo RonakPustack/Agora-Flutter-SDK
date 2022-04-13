@@ -26,14 +26,22 @@ abstract class RtcEngine {
   RtcDeviceManager get deviceManager;
 
   ///
-  /// Creates the RtcEngine object.
-  /// Deprecated:
-  ///  This method is deprecated. Use createWithContext instead.
+  /// Creates and gets an RtcChannel object.
+  /// You can call this method multiple times to create multiple RtcChannel objects, and then call the joinChannel methods in of each RtcChannel to join multiple channels at the same time.
+  ///  After joining multiple channels, you can simultaneously subscribe to the the audio and video streams of all the channels, but publish a stream in only one channel at one time.
   ///
-  /// Param [appId] The Agora App ID of your Agora project.
+  /// Param [channelId] The channel name. This parameter signifies the channel in which users engage in real-time audio and video interaction. Under the premise of the same App ID, users who fill in the same channel ID enter the same channel for audio and video interaction. The string length must be less than 64 bytes. Supported characters:
+  ///  The 26 lowercase English letters: a to z.
+  ///  The 26 uppercase English letters: A to Z.
+  ///  The 10 numeric characters: 0 to 9.
+  ///  Space
+  ///  "!", "#", "$", "%", "&", "(", ")", "+", "-", ":", ";", "<", "=", ".", ">", "?", "@", "[", "]", "^", "_", "{", "}", "|", "~", ","
+  ///  The parameter does not have a default value. You must set it.
+  ///  Do not set this parameter as the empty string "". Otherwise, the SDK returns ERR_REFUSED(5).
   ///
-  /// **return** The RtcEngine instance, if the method call succeeds.
-  ///  An error code, if the call fails.
+  ///
+  /// **return** A pointer to the RtcChannel instance, if the method call succeeds.
+  ///  If the call fails, returns null.
   ///
   static Future<RtcEngine> create(String appId) {
     return createWithContext(RtcEngineContext(appId));
@@ -442,6 +450,7 @@ abstract class RtcEngine {
   ///
   Future<void> takeSnapshot(String channel, int uid, String filePath);
 
+  /* TODO(doc): api-engine-enableContentInspect */
   Future<void> enableContentInspect(bool enabled, ContentInspectConfig config);
 
   ///
