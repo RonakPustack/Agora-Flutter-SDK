@@ -127,11 +127,14 @@ class _CustomCaptureAudioState extends State<CustomCaptureAudio> {
   }
 
   Future<void> _leaveChannel() async {
+    if (_isMute) {
+      await _muteLocalAudioStream();
+    }
+    await _api.stopAudioRecord();
     await _engine.leaveChannel();
   }
 
   void _destroyEngine() async {
-    await _api.stopAudioRecord();
     await _engine.leaveChannel();
     await _engine.destroy();
   }
@@ -267,17 +270,17 @@ class _CustomCaptureAudioState extends State<CustomCaptureAudio> {
             ),
           ),
           ElevatedButton(
-            onPressed: !_isJoined
-                ? null
-                : () async {
-                    _isMute = !_isMute;
-                    await _engine.muteLocalAudioStream(_isMute);
-                    setState(() {});
-                  },
+            onPressed: !_isJoined ? null : _muteLocalAudioStream,
             child: Text('${_isMute ? 'Open' : 'Mute'} microphone'),
           ),
         ],
       ],
     );
+  }
+
+  Future<void> _muteLocalAudioStream() async {
+    _isMute = !_isMute;
+    await _engine.muteLocalAudioStream(_isMute);
+    setState(() {});
   }
 }

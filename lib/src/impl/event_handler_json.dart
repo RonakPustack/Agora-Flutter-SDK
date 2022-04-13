@@ -131,3 +131,14 @@ class OnRecorderInfoUpdatedJson {
 
   Map<String, dynamic> toJson() => _$OnRecorderInfoUpdatedJsonToJson(this);
 }
+
+@JsonSerializable()
+class OnContentInspectResultJson {
+  final ContentInspectResult result;
+  const OnContentInspectResultJson(this.result);
+
+  factory OnContentInspectResultJson.fromJson(Map<String, dynamic> json) =>
+      _$OnContentInspectResultJsonFromJson(json);
+
+  Map<String, dynamic> toJson() => _$OnContentInspectResultJsonToJson(this);
+}

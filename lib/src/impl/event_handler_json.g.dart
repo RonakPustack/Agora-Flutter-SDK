@@ -172,3 +172,21 @@ Map<String, dynamic> _$OnRecorderInfoUpdatedJsonToJson(
     <String, dynamic>{
       'info': instance.info,
     };
+
+OnContentInspectResultJson _$OnContentInspectResultJsonFromJson(
+        Map<String, dynamic> json) =>
+    OnContentInspectResultJson(
+      $enumDecode(_$ContentInspectResultEnumMap, json['result']),
+    );
+
+Map<String, dynamic> _$OnContentInspectResultJsonToJson(
+        OnContentInspectResultJson instance) =>
+    <String, dynamic>{
+      'result': _$ContentInspectResultEnumMap[instance.result],
+    };
+
+const _$ContentInspectResultEnumMap = {
+  ContentInspectResult.ContentInspectNeutral: 1,
+  ContentInspectResult.ContentInspectSexy: 2,
+  ContentInspectResult.ContentInspectPorn: 3,
+};

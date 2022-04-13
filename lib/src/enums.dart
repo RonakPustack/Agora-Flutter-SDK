@@ -4147,3 +4147,14 @@ enum AudioDeviceTestVolumeType {
   @JsonValue(1)
   AudioTestPlaybackVolume,
 }
+
+enum ContentInspectResult {
+  @JsonValue(1)
+  ContentInspectNeutral,
+
+  @JsonValue(2)
+  ContentInspectSexy,
+
+  @JsonValue(3)
+  ContentInspectPorn,
+}

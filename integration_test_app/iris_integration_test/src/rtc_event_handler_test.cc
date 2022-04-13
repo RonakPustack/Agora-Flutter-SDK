@@ -476,6 +476,10 @@ void CallRtcEngineEvents(IrisRtcEnginePtr engine_ptr, const char *event_name)
     {
         handler->onAudioDeviceTestVolumeIndication(AudioDeviceTestVolumeType::AudioTestPlaybackVolume, 10);
     }
+    if (event_name == nullptr || strcmp(event_name, "onContentInspectResult") == 0)
+    {
+        handler->onContentInspectResult(CONTENT_INSPECT_RESULT::CONTENT_INSPECT_NEUTRAL);
+    }
 }
 
 void CallRtcChannelEvents(IrisRtcEnginePtr engine_ptr, const char *event_name)

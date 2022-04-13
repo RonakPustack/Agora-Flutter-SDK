@@ -485,6 +485,13 @@ extension RtcEngineEventHandlerExt on RtcEngineEventHandler {
         }
         break;
 
+      case 'ContentInspectResult':
+        if (contentInspectResult != null) {
+          final json = OnContentInspectResultJson.fromJson(dataMap);
+          contentInspectResult!(json.result);
+        }
+        break;
+
       default:
         // do nothing
         break;

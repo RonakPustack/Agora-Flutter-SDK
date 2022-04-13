@@ -2543,3 +2543,34 @@ class WlAccStats {
   /// @nodoc
   Map<String, dynamic> toJson() => _$WlAccStatsToJson(this);
 }
+
+@JsonSerializable(explicitToJson: true)
+class ContentInspectModule {
+  final int type;
+  final int interval;
+  const ContentInspectModule({this.type = 0, this.interval = 0});
+
+  /// @nodoc
+  factory ContentInspectModule.fromJson(Map<String, dynamic> json) =>
+      _$ContentInspectModuleFromJson(json);
+
+  /// @nodoc
+  Map<String, dynamic> toJson() => _$ContentInspectModuleToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class ContentInspectConfig {
+  final String? extraInfo;
+  final List<ContentInspectModule> modules;
+  final int moduleCount;
+
+  const ContentInspectConfig(
+      {required this.modules, this.extraInfo, this.moduleCount = 0});
+
+  /// @nodoc
+  factory ContentInspectConfig.fromJson(Map<String, dynamic> json) =>
+      _$ContentInspectConfigFromJson(json);
+
+  /// @nodoc
+  Map<String, dynamic> toJson() => _$ContentInspectConfigToJson(this);
+}

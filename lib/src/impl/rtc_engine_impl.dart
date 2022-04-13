@@ -1899,6 +1899,17 @@ class RtcEngineImpl with MediaRecorderImplMixin implements RtcEngine {
   }
 
   @override
+  Future<void> enableContentInspect(bool enabled, ContentInspectConfig config) {
+    return _invokeMethod('callApi', {
+      'apiType': ApiTypeEngine.kEngineEnableContentInspect.index,
+      'params': jsonEncode({
+        'enabled': enabled,
+        'config': config.toJson(),
+      }),
+    });
+  }
+
+  @override
   Future<void> enableWirelessAccelerate(bool enabled) {
     return _invokeMethod('callApi', {
       'apiType': ApiTypeEngine.kEngineEnableWirelessAccelerate.index,

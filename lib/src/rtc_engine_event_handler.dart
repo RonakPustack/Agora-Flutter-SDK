@@ -1185,6 +1185,8 @@ class RtcEngineEventHandler {
   ///
   OnAudioDeviceTestVolumeIndication? audioDeviceTestVolumeIndication;
 
+  OnContentInspectResult? contentInspectResult;
+
   /// @nodoc
   RtcEngineEventHandler({
     this.warning,
@@ -1283,5 +1285,6 @@ class RtcEngineEventHandler {
     this.wlAccStats,
     this.proxyConnected,
     this.audioDeviceTestVolumeIndication,
+    this.contentInspectResult,
   });
 }

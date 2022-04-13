@@ -136,11 +136,13 @@ class _State extends State<MediaRecorder> {
   Future<void> _stopMediaRecording() async {
     await _mediaRecorder?.stopRecording();
     setState(() {
+      _recordingFileStoragePath = '';
       _isStartedMediaRecording = false;
     });
   }
 
   Future<void> _leaveChannel() async {
+    await _stopMediaRecording();
     await _engine.leaveChannel();
   }
 

@@ -442,6 +442,8 @@ abstract class RtcEngine {
   ///
   Future<void> takeSnapshot(String channel, int uid, String filePath);
 
+  Future<void> enableContentInspect(bool enabled, ContentInspectConfig config);
+
   ///
   /// Registers a user account.
   /// Once registered, the user account can be used to identify the local user when the user joins the channel. After the registration is successful, the user account can identify the identity of the local user, and the user can use it to join the channel.

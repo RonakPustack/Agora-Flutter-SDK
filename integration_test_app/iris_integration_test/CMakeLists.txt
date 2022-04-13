@@ -77,7 +77,7 @@ elseif (CMAKE_SYSTEM_NAME STREQUAL "iOS")
         FRAMEWORK_VERSION A
         MACOSX_FRAMEWORK_IDENTIFIER io.agora.iris.it
         CXX_VISIBILITY_PRESET hidden
-        LINK_FLAGS "-Wl -F ${LIBS_DIR} -rpath ${CMAKE_CURRENT_SOURCE_DIR}/../../ios/Pods/AgoraRtcEngine_macOS"
+        LINK_FLAGS "-Wl -F ${LIBS_DIR} -rpath ${CMAKE_CURRENT_SOURCE_DIR}/../../ios/Pods/AgoraRtcEngine_iOS"
         )
 
     target_link_libraries(${LIBRARY_NAME}

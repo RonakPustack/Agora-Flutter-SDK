@@ -107,6 +107,7 @@ class _State extends State<StreamMessage> {
       },
       leaveChannel: (RtcStats stats) {
         logSink.log('leaveChannel ${stats.toString()}');
+        remoteUids.clear();
         setState(() {
           isJoined = false;
         });

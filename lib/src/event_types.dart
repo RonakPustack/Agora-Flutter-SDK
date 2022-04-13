@@ -176,6 +176,8 @@ typedef AudioDeviceStateChanged = void Function(
   MediaDeviceStateType deviceState,
 );
 
+typedef OnContentInspectResult = void Function(ContentInspectResult result);
+
 typedef RemoteAudioMixingBegin = void Function();
 
 typedef RemoteAudioMixingEnd = void Function();

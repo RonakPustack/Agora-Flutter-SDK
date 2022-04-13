@@ -1403,3 +1403,35 @@ Map<String, dynamic> _$WlAccStatsToJson(WlAccStats instance) =>
       'frozenRatioPercent': instance.frozenRatioPercent,
       'lossRatePercent': instance.lossRatePercent,
     };
+
+ContentInspectModule _$ContentInspectModuleFromJson(
+        Map<String, dynamic> json) =>
+    ContentInspectModule(
+      type: json['type'] as int? ?? 0,
+      interval: json['interval'] as int? ?? 0,
+    );
+
+Map<String, dynamic> _$ContentInspectModuleToJson(
+        ContentInspectModule instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      'interval': instance.interval,
+    };
+
+ContentInspectConfig _$ContentInspectConfigFromJson(
+        Map<String, dynamic> json) =>
+    ContentInspectConfig(
+      modules: (json['modules'] as List<dynamic>)
+          .map((e) => ContentInspectModule.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      extraInfo: json['extraInfo'] as String?,
+      moduleCount: json['moduleCount'] as int? ?? 0,
+    );
+
+Map<String, dynamic> _$ContentInspectConfigToJson(
+        ContentInspectConfig instance) =>
+    <String, dynamic>{
+      'extraInfo': instance.extraInfo,
+      'modules': instance.modules.map((e) => e.toJson()).toList(),
+      'moduleCount': instance.moduleCount,
+    };
